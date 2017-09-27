@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Import Google Icon Font-->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Ingreso</title>
+    <style media="screen">
+    body {
+      color: #FFFFFF;
+      background-color: #373A3B;
+    }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="nav-wrapper grey darken-4">
+          <a href="#!" class="brand-logo center">Blackcrozz</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="left hide-on-med-and-down">
+            <li><a href="index.html">Ingreso de Vehiculos</a></li>
+            <li><a href="aprobaciones.html">Aprobaciones</a></li>
+            <li><a href="apartados.html">Apartados</a></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="facturados.html">Facturados</a></li>
+              <li><a href="entregas.html">Entregas</a></li>
+          </ul>
+          <ul class="side-nav grey darken-4" id="mobile-demo">
+            <li><div class="user-view">
+              <div class="background">
+                <img src="images/office.jpg">
+              </div>
+                <!-- <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a> -->
+                </div></li>
+            <li><a href="#!"><i class="material-icons">cloud</i><span class="white-text">First Link With Icon</a></li>
+            <li><a href="index.html"><span class="white-text">Ingreso de Vehiculos</a></li>
+            <li><a href="aprobaciones.html"><span class="white-text"><span class="white-text"><span class="white-text">Aprobaciones</a></li>
+            <li><a href="apartados.html"><span class="white-text"><span class="white-text">Apartados</a></li>
+            <li><a href="facturados.html"><span class="white-text">Facturados</a></li>
+            <li><a href="entregas.html"><span class="white-text">Entregas</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+<div class="container">
+  <section id="enterForm">
+
+      <div class="row">
+         <form class="col s12" id="ingreso">
+           <div class="row">
+             <div class="input-field col s6">
+               <input  id="modelo" type="text" class="validate" required>
+               <label for="modelo">Modelo</label>
+             </div>
+             <div class="input-field col s6">
+               <input id="agencia" type="text" class="validate" required>
+               <label for="agencia">Agencia</label>
+             </div>
+           </div>
+
+           <div class="row">
+             <div class="input-field col s6">
+               <input id="exterior" type="text" class="validate">
+               <label for="exterior">Exterior</label>
+             </div>
+                  <div class="input-field col s6">
+               <input id="interior" type="text" class="validate">
+               <label for="interior">Interior</label>
+             </div>
+           </div>
+
+           <div class="row">
+             <div class="input-field col s12">
+               <textarea id="equipo" class="materialize-textarea"></textarea>
+                <label for="equipo">Equipo</label>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col s6">
+                  <label for="fentrega">Fecha de Entrega</label>
+                <input id="fentrega" type="month" class="datepicker">
+            </div>
+            <div class="input-field col s6">
+                <input id="precio" type="text" class="validate">
+                <label for="precio">Precio</label>
+           </div>
+           </div>
+           <div class="row">
+             <div class="input-field col s6">
+               <select id="tipo">
+                 <option value="" disabled selected>Tipo de descuento</option>
+                 <option value="porcentaje">Porcentaje</option>
+                 <option value="efectivo">Efectivo</option>
+               </select>
+               <label>Descuento</label>
+             </div>
+             <div class="input-field col s6">
+                 <input id="monto" type="number" class="validate" required>
+                 <label for="monto">Monto</label>
+            </div>
+           </div>
+           <button type="button" class="btn waves-effect waves-light" id="submit-btn" onclick="carga()" >Ingresar
+             <i class="material-icons right">send</i>
+           </button>
+         </form>
+       </div>
+   </section>
+</div>
+
+
+
+    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script> -->
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <script>
+    // Initialize collapse button
+     $(".button-collapse").sideNav();
+    //Control del Textarea
+     $('#equipo').val('');
+     $('#equipo').trigger('autoresize');
+
+
+      //Control de selecting
+      $(document).ready(function() {
+         $('select').material_select();
+       });
+       $('.datepicker').pickadate({
+         selectMonths: true, // Creates a dropdown to control month
+         selectYears: 15, // Creates a dropdown of 15 years to control year,
+         today: 'Today',
+         clear: 'Clear',
+         close: 'Ok',
+         closeOnSelect: false, // Close upon selecting a date,
+         format: 'yyyy-mm-dd'
+       });
+    </script>
+    <script type="text/javascript" src="js/ingreso.js"></script>
+  </body>
+</html>
